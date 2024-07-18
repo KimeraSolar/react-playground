@@ -28,7 +28,7 @@ export default function DonutChartCard({data, label, centralValue, title, subtit
         height: 400,
       };
 
-    return <Card>
+    return <Card sx={{minWidth: '400px'}}>
         <CardContent>
             <Typography variant='h4'>
                 {title}
