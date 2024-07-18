@@ -1,6 +1,14 @@
 import { PaletteMode } from "@mui/material";
 
 export const getThemeConfigurations = (mode: PaletteMode) => ({
+    typography: {
+        fontFamily: [
+            'Lato',
+            'Roboto',
+            'Arial',
+            'sans-serif'
+        ].join(','),
+    },
     palette: {
         mode,
         ...(

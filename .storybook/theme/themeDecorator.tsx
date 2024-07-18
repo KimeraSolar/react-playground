@@ -1,5 +1,5 @@
 import React from "react"
-import { createTheme, css, Theme, ThemeProvider } from "@mui/material";
+import { createTheme, css, Theme, ThemeProvider } from "@mui/material/styles";
 import { getThemeConfigurations } from '../../src/theme'
 import styled from "@emotion/styled";
 
@@ -31,7 +31,12 @@ export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
   const lightTheme = createTheme(getThemeConfigurations('light'));
   const darkTheme = createTheme(getThemeConfigurations('dark'));
 
-  if(viewMode === 'docs') return StoryFn(); // Não modifica a visualização no modo 'Docs'
+  if(viewMode === 'docs'){
+    // Não modifica a visualização no modo 'Docs'
+    return <ThemeProvider theme={lightTheme}>
+      <StoryFn />
+    </ThemeProvider>
+  } 
 
   switch (theme) {
     // Faz os modos de visualização 'Side by side' onde visualiza as versões dark e light ao mesmo tempo
