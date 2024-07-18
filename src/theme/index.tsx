@@ -16,10 +16,11 @@ export const getThemeConfigurations = (mode: PaletteMode) => ({
             {
                 background: {
                     default: '#FAFAFA',
-                    paper: '#FFFFFF'
+                    paper: '#FFFFFF',
                 },
                 text: {
-                    primary: '#1E1E1E'
+                    primary: '#1E1E1E',
+                    secondary: '#7F7F7F'
                 },
                 error: {
                     main: '#CB2100'
@@ -41,6 +42,9 @@ export const getThemeConfigurations = (mode: PaletteMode) => ({
                 },
             } : 
             {
+                text: {
+                    secondary: '#7F7F7F'
+                },
                 error: {
                     main: '#EF2525'
                 },
