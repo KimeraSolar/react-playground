@@ -4,16 +4,18 @@ import { styled } from '@mui/material';
 
 const StyledLabel = styled('text')(({ theme }) => ({
     fill: theme.palette.text.primary,
+    fontFamily: theme.typography.fontFamily,
     textAnchor: 'middle',
     dominantBaseline: 'central',
-    fontSize: 20,
+    fontSize: 12,
 }));
 
 const StyledValue = styled('text')(({ theme }) => ({
     fill: theme.palette.text.primary,
+    fontFamily: theme.typography.fontFamily,
     textAnchor: 'middle',
     dominantBaseline: 'central',
-    fontSize: 40,
+    fontSize: 20,
 }));
 
 function PieCenterValue({ children }: { children: React.ReactNode }) {
@@ -28,7 +30,7 @@ function PieCenterValue({ children }: { children: React.ReactNode }) {
 function PieCenterLabel({ children }: { children: React.ReactNode }) {
     const { width, height, left, top } = useDrawingArea();
     return (
-        <StyledLabel x={left + width / 2} y={top + height / 2 + 20}>
+        <StyledLabel x={left + width / 2} y={top + height / 2 + 10}>
         {children}
         </StyledLabel>
     );
