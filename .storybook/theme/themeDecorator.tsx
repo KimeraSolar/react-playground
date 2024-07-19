@@ -3,8 +3,7 @@ import { createTheme, css, Theme, ThemeProvider } from "@mui/material/styles";
 import { getThemeConfigurations } from '../../src/theme'
 import styled from "@emotion/styled";
 
-
-const ThemeBlock = styled.div<{ $left?: boolean; $fill?: boolean, $theme?: Theme}>(
+const CanvasThemeBlock = styled.div<{ $left?: boolean; $fill?: boolean, $theme?: Theme}>(
   ({ $left, $fill, $theme }) =>
     css`
       position: absolute;
@@ -26,6 +25,14 @@ const ThemeBlock = styled.div<{ $left?: boolean; $fill?: boolean, $theme?: Theme
     `
 )
 
+const DocsThemeBlock = styled.div<{$theme?: Theme}>(
+ ({$theme}) =>
+  css`
+    background-color: ${$theme?.palette.background.default || '#fff'};
+    padding: 30px;
+  `
+)
+
 export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
   const { theme } = globals;
   const lightTheme = createTheme(getThemeConfigurations('light'));
@@ -33,8 +40,10 @@ export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
 
   if(viewMode === 'docs'){
     // Não modifica a visualização no modo 'Docs'
-    return <ThemeProvider theme={lightTheme}>
-      <StoryFn />
+    return <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <DocsThemeBlock $theme={theme === 'dark' ? darkTheme : lightTheme}>
+        <StoryFn />
+      </DocsThemeBlock>
     </ThemeProvider>
   } 
 
@@ -44,18 +53,18 @@ export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
       return (
         <>
           <ThemeProvider theme={lightTheme}>
-              <ThemeBlock $left $theme={lightTheme}>
+              <CanvasThemeBlock $left $theme={lightTheme}>
                 <div className="story-container">
                   <StoryFn />
                 </div>
-              </ThemeBlock>
+              </CanvasThemeBlock>
           </ThemeProvider>
           <ThemeProvider theme={darkTheme}>
-            <ThemeBlock $theme={darkTheme}>
+            <CanvasThemeBlock $theme={darkTheme}>
               <div className="story-container">
                 <StoryFn />
               </div>
-            </ThemeBlock>
+            </CanvasThemeBlock>
           </ThemeProvider>
         </>
       )
@@ -64,11 +73,11 @@ export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
       const themeProvider = theme === 'dark' ? darkTheme : lightTheme;
       return (
         <ThemeProvider theme={themeProvider}>
-            <ThemeBlock $fill $theme={themeProvider}>
+            <CanvasThemeBlock $fill $theme={themeProvider}>
               <div className="story-container">
                 <StoryFn className='story-class' />
               </div>
-            </ThemeBlock>
+            </CanvasThemeBlock>
         </ThemeProvider>
       )
     }
