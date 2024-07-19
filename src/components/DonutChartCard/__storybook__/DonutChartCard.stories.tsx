@@ -19,8 +19,8 @@ type Story = StoryObj<typeof meta>
 
 export const DonutChart: Story = {
     args: {
-        title: 'Donut chart',
-        subtitle: 'This is a donut chart',
+        title: 'donut-chart-title',
+        subtitle: 'donut-chart-subtitle',
         data: [
             {
                 argument: 'data 1',
