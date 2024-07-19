@@ -1,8 +1,9 @@
 import { PieChart } from '@mui/x-charts/PieChart';
-import { Box, Card, CardContent, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Card, CardContent, Stack, useTheme } from "@mui/material";
 import CenterText from './CenterText';
 import DataLabel from './DataLabel';
 import { ReactNode } from 'react';
+import TranslatedTypography from '../TranslatedTypography';
 
 type DataType = {
     argument: string, 
@@ -31,12 +32,12 @@ export default function DonutChartCard({data, label, centralValue, title, subtit
     return <Card sx={{minWidth: '400px'}}>
         <CardContent>
             <Stack>
-                <Typography variant='h4'>
+                <TranslatedTypography variant='h4'>
                     {title}
-                </Typography>
-                <Typography variant='overline' color={theme.palette.text.secondary} sx={{lineHeight: '1.2'}}>
+                </TranslatedTypography>
+                <TranslatedTypography variant='overline' color={theme.palette.text.secondary} sx={{lineHeight: '1.2'}}>
                     {subtitle}
-                </Typography>
+                </TranslatedTypography>
             </Stack>
             <Box sx={{
                 alignItems: 'center'

@@ -1,4 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import TranslatedTypography from "../TranslatedTypography";
 
 type DataLabelProps = {
     argument: string;
@@ -28,6 +29,6 @@ export default function DataLabel({ argument, value, color, isSelected}: DataLab
                 <circle cx="4.5" cy="4.8689" r="4" fill={color} />
             </svg>
         }
-        <Typography variant="caption" sx={{ paddingLeft: color ? 1 : 0, display: 'block', fontWeight: isSelected ? 'bold' : 'regular'}}>{value} {argument}</Typography>
+        <TranslatedTypography variant="caption" sx={{ paddingLeft: color ? 1 : 0, display: 'block', fontWeight: isSelected ? 'bold' : 'regular'}}>{value} {argument}</TranslatedTypography>
     </Box>
 }
