@@ -3,5 +3,7 @@
     "card-totals-line-tooltip-body": "O valor em destaque se refere ao valor mais atual, enquanto o gráfico mostra a evolução do valor nos últimos cinco minutos.",
 
     "donut-chart-title": "Card com gráfico tipo rosquinha",
-    "donut-chart-subtitle": "Esse é um gráfico de rosquinha"
+    "donut-chart-subtitle": "Esse é um gráfico de rosquinha",
+
+    "default-translation-text": "Texto traduzido para o Português brasileiro"
 }
