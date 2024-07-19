@@ -1,0 +1,7 @@
+{
+    "card-totals-line-title": "Totals & Line Card",
+    "card-totals-line-tooltip-body": "The highlighted value refers to the most current value, while the graph shows the evolution of the value over the last five minutes.",
+
+    "donut-chart-title": "Card with donut graphic",
+    "donut-chart-subtitle": "This is a donut chart"
+}
