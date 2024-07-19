@@ -33,4 +33,17 @@ export const globalTypes = {
       showName: true,
     },
   },
+  language: {
+    name: 'Language',
+    description: 'Global language for components',
+    defaultValue: 'en',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        { value: 'en', title: 'English'},
+        { value: 'pt', title: 'Português'}
+      ]
+    },
+    showName: true,
+  }
 }

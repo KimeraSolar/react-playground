@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { createTheme, css, Theme, ThemeProvider } from "@mui/material/styles";
 import { getThemeConfigurations } from '../../src/theme'
 import styled from "@emotion/styled";
+import '../../src/i18n'
+import i18next from "../../src/i18n";
 
 const CanvasThemeBlock = styled.div<{ $left?: boolean; $fill?: boolean, $theme?: Theme}>(
   ({ $left, $fill, $theme }) =>
@@ -34,7 +36,12 @@ const DocsThemeBlock = styled.div<{$theme?: Theme}>(
 )
 
 export default function ThemeDecorator(StoryFn, { globals, viewMode }) {
-  const { theme } = globals;
+  const { theme, language } = globals;
+
+  useEffect(() => {
+    i18next.changeLanguage(language);
+  }, [language]);
+
   const lightTheme = createTheme(getThemeConfigurations('light'));
   const darkTheme = createTheme(getThemeConfigurations('dark'));
 
